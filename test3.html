@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eFiling Services</title>
+    <link rel="stylesheet" href="test3.css" />
+  </head>
+  <body>
+    <header>
+      <h1>eFiling Services</h1>
+      <h2 id="court-name">High Court of Onssa</h2>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#my-cases">My Cases</a></li>
+        <li><a href="#register-case">Register Case</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="profile">
+        <h2>Profile Details</h2>
+        <div class="profile-info">
+          <img src="placeholder.jpg" alt="Profile Picture" />
+          <div>
+            <p><b>Bar Regn. No.:</b> 0/025/1998</p>
+            <p><b>Advocate Name:</b> Shikod Kumar Sahce</p>
+            <p><b>Full Name:</b> Kshinod Kumar Sahce</p>
+            <p><b>Gender:</b> Male</p>
+            <p><b>Date of Birth:</b> 15-07-1968</p>
+            <button class="edit-btn">Edit</button>
+            <button class="save-btn" disabled>Save</button>
+          </div>
+        </div>
+        <div class="contact-details">
+          <h3>Contact Details</h3>
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td>Kshirod Kumar Sahoo</td>
+            </tr>
+            <tr>
+              <th>Address:</th>
+              <td>Achess</td>
+            </tr>
+            <tr>
+              <th>State/UT:</th>
+              <td>DOIGIA</td>
+            </tr>
+            <tr>
+              <th>District:</th>
+              <td>Paraguda</td>
+            </tr>
+            <tr>
+              <th>Pincode:</th>
+              <td>753007</td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td>kshirodkumatsaboo643@gmail.com</td>
+            </tr>
+            <tr>
+              <th>Phone:</th>
+              <td>9957192533</td>
+            </tr>
+            <tr>
+              <th>Landline:</th>
+              <td>0937192553</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="my-cases">
+        <h2>My Cases</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Search Cases" />
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Case Number</th>
+              <th>Case Type</th>
+              <th>Client Name</th>
+              <th>Case Progress</th>
+              <th>Documents</th>
+              <th>Hearing Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+      <section id="register-case">
+        <h2>Register New Case</h2>
+        <form id="case-form">
+          <button type="submit">Register Case</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>Change Password</p>
+      <p>Powered by CPC</p>
+    </footer>
+    <script>
+      const editBtn = document.querySelector(".edit-btn");
+      const saveBtn = document.querySelector(".save-btn");
+      const profileInfo = document.querySelector(".profile-info");
+
+      editBtn.addEventListener("click", () => {
+        // Simulate edit mode (enable form fields)
+        profileInfo
+          .querySelectorAll("input, select, textarea")
+          .forEach((el) => el.removeAttribute("disabled"));
+        editBtn.disabled = true;
+        saveBtn.disabled = false;
+      });
+
+      saveBtn.addEventListener("click", () => {
+        // Simulate save functionality (disable form fields)
+        profileInfo
+          .querySelectorAll("input, select, textarea")
+          .forEach((el) => el.setAttribute("disabled", "disabled"));
+        editBtn.disabled = false;
+        saveBtn.disabled = true;
+      });
+
+      // Add search functionality for cases table (implementation depends on your backend)
+      const searchInput = document.querySelector(".search-bar input");
+      searchInput.addEventListener("keyup", () => {
+        // Filter table rows based on search query
+        const searchTerm = searchInput.value.toLowerCase();
+        const tableBody = document.querySelector("tbody");
+        const tableRows = tableBody.querySelectorAll("tr");
+
+        tableRows.forEach((row) => {
+          // Filter logic using searchTerm
+          // ... (Implementation depends on your data and table structure)
+        });
+      });
+    </script>
+  </body>
+</html>
